@@ -15,7 +15,7 @@ export default function AuthForm() {
           challenge: new Uint8Array(32),
           rp: {
             name: "my backend server",
-            id: "localhost",
+            id: window.location.hostname,
           },
           user: {
             id: new Uint8Array(32),
@@ -55,7 +55,7 @@ export default function AuthForm() {
       const data = await navigator.credentials.get({
         publicKey: {
           challenge: new Uint8Array(32),
-          rpId: "localhost",
+          rpId: window.location.hostname,
           allowCredentials: [
             {
               id: new Uint8Array(JSON.parse(storedRawId)).buffer,
