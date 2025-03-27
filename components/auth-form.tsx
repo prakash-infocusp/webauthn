@@ -29,7 +29,7 @@ export default function AuthForm() {
         },
       });
 
-      if (data?.rawId) {
+      if (data instanceof PublicKeyCredential) {
         localStorage.setItem(
           "userRawId",
           JSON.stringify([...new Uint8Array(data.rawId)])
